@@ -1,6 +1,6 @@
 //Initilize Firebase-Admin
 var admin = require("firebase-admin");
-var serviceAccount = require("./ditto-zone-1046a-firebase-adminsdk-ykflz-daa05be544.json");
+var serviceAccount = require("../App-Secrets/ditto-zone-1046a-firebase-adminsdk-ykflz-daa05be544.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://ditto-zone-1046a.firebaseio.com"
