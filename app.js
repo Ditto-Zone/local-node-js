@@ -19,12 +19,15 @@ const app = express();
 const port = 3000;
 app.listen(port);
 //
+//Cors.js
+var cors = require('cors');
+//
 //Printer Module
 const printer = require('node-native-printer');
 //
 
 //Get all printers connected to PC
-app.get('/get/printers',(req,res)=>{
+app.get('/get/printers',cors(),(req,res)=>{
    
     printer.listPrinters().then((e)=>{
       res.json(e);   
@@ -32,7 +35,7 @@ app.get('/get/printers',(req,res)=>{
 });
 //
 //Print a package
-app.get('/print/:package?',(req,res)=>{
+app.get('/print/:package?',cors(),(req,res)=>{
 var packageDetails;
 var packageRef = db.collection('Packages').doc(req.params.package);
 packageRef.get().then(doc=>{
